@@ -1,76 +1,57 @@
 # 원티드 프리온보딩 프론트엔드 코스 과제
 
-## npm install
+## Getting Started
 
-사용 라이브러리
-styled-components,
-react-icons,
-react-router-dom,
-"styled-components
+```
+npm install
+npm run start
+```
+사용 라이브러리: styled-components, react-icons, react-router-dom, styled-components
 
-## Available Scripts
+## 폴더 구조
 
-In the project directory, you can run:
+```
+/src
+  App.js
+  /components
+    Toggle.js
+    Tab.js
+    Slider.js
+    Input.js
+    Dropdown.js
+```
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 1. Tab
+### ✔구현방법 
+먼저 메뉴 배열을 만들고 map을 이용해 각각의 li에 값을 넣어 구현하였습니다. 
+메뉴 탭을 클릭했을 때 state에 자신의 index값을 담고 
+index값과 메뉴의 width 곱해 활성화된 메뉴에 위치해 있도록 하였습니다.
 
-### `npm test`
+## 2. Toggle
+### ✔구현방법 
+두 가지의 선택지이기에 state에 boolean을 사용해 구현하였습니다.
+true일 경우와 false인 경우 각각 다른 className을 주는 방법으로 구현하였습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 3. Input
+### ✔구현방법 
+email 유효성 검사를 위해 onChane를 이벤트를 통해 input의 value를 state에 값을 담고  
+정규표현식을 사용해 반환되는 값(boolean)을 다른 state에 담아 
+형식에 맞을 경우와 맞지 않는 경우 아이콘이 변경되도록 구현하였습니다.
 
-### `npm run build`
+비밀번호 경우는 삼항 연산자를 이용해 input의 type을 바꿔주도록 구현하였습니다.
+<input type={password ? "password" : ""} />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 4. Slider
+### ✔구현방법 
+input의 range를 이용해 구현했습니다.
+input을 만들고 opacity를 주고 input을 덮는 bar를 만들어 기본 제공되는 동작을 활용해 구현했습니다.
+input의 value를 state에 담아 버튼의 위치와 상단 텍스트가 변경되도록 하였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 5. Dropdown
+### ✔구현방법 
+검색어를 입력하면 filter와 includes를 이용해 매치되는 검색을 반환 후 
+다시 mpa을 이용해 li에 값을 넣어 화면에 보여주도록 구현하였습니다.
+처음 검색어를 한글로만 구성했지만 영어로 검색했을 시 
+대문자와 소문자 구분이 안 되는 문제가 발생할 수 있어 .toLowerCase()를 사용하였습니다.
