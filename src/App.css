@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+  padding: 10vh;
+  width: 90vw;
+
+  border: 1px solid red;
+  align-items: center;
+}
+.linkBox {
+  display: flex;
+  margin-top: 7vh;
+}
+.linkBtn {
+  display: flex;
+  padding: 5px 10px;
+  border: 1px solid red;
+  color: black;
+  text-decoration: none;
+}
+.linkBtn + .linkBtn {
+  margin-left: 10px;
+}
+.linkBtn:hover {
+  background-color: rgb(196, 255, 206);
+  transition: 0.5s;
+}
