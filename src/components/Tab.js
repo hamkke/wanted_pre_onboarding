@@ -3,11 +3,7 @@ import styled from "styled-components";
 
 const Tab = () => {
   const [num, setNum] = React.useState(0);
-  const tabMenu = [
-    { name: "안녕🌸", contents: "안녕🌸" },
-    { name: "하세🌷", contents: "하세🌷" },
-    { name: "요🌼", contents: "요🌼" },
-  ];
+  const tabMenu = ["안녕🌸", "하세🌷", "요🌼"];
 
   return (
     <div className="box">
@@ -21,7 +17,7 @@ const Tab = () => {
                   setNum(idx);
                 }}
               >
-                {tabMenu[idx].name}
+                {tabMenu[idx]}
               </TabLi>
             );
           })}
@@ -29,7 +25,7 @@ const Tab = () => {
         <AniBox>
           <AniBar location={num}></AniBar>
         </AniBox>
-        <TabCon>{tabMenu[num].contents}</TabCon>
+        <TabCon>{tabMenu[num]}</TabCon>
       </TabBox>
     </div>
   );

@@ -8,16 +8,15 @@ const Dropdown = () => {
   const [listOpen, setListOpen] = React.useState(false);
   const [title, setTitle] = React.useState("All");
   const listItem = [
-    "안녕",
-    "하세",
-    "요",
+    "안녕하세요",
     "✨",
-    "반갑",
-    "습니다",
+    "반가워여!",
     "✨✨",
-    "안녕안녕",
-    "습습",
-    "세",
+    "안녕안녕하세요",
+    "반가워요",
+    "A",
+    "AA",
+    "ABC",
   ];
 
   return (
@@ -47,7 +46,7 @@ const Dropdown = () => {
                 .filter((i) => {
                   if (text === "") {
                     return i;
-                  } else if (i.includes(text)) {
+                  } else if (i.toLowerCase().includes(text.toLowerCase())) {
                     return i;
                   }
                   return false;
@@ -103,7 +102,7 @@ const MenuBox = styled.div`
   height: 100%;
 
   & input {
-    padding: 10px 10px 10px 36px;
+    padding: 10px 10px 10px 50px;
     width: 100%;
     background-color: #eee;
     border: none;
