@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# 원티드 프리온보딩 프론트엔드 코스 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## npm install
+
+사용 라이브러리
+styled-components,
+react-icons,
+react-router-dom,
+"styled-components
 
 ## Available Scripts
 
