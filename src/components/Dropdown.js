@@ -1,54 +1,61 @@
-import React from "react";
-import styled from "styled-components";
-import { ImSearch } from "react-icons/im";
-import { MdArrowDropDown } from "react-icons/md";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { ImSearch } from 'react-icons/im';
+import { MdArrowDropDown } from 'react-icons/md';
 
 const Dropdown = () => {
-  const [text, setFilter] = React.useState("");
-  const [listOpen, setListOpen] = React.useState(false);
-  const [title, setTitle] = React.useState("All");
+  const [text, setFilter] = useState('');
+  const [listOpen, setListOpen] = useState(false);
+  const [title, setTitle] = useState('All');
   const listItem = [
-    "안녕하세요",
-    "✨",
-    "반가워여!",
-    "✨✨",
-    "안녕안녕하세요",
-    "반가워요",
-    "A",
-    "AA",
-    "ABC",
+    '안녕하세요',
+    '✨',
+    '반가워여!',
+    '✨✨',
+    '안녕안녕하세요',
+    '반가워요',
+    'A',
+    'AA',
+    'ABC',
   ];
+
+  const openMenu = () => {
+    setListOpen(!listOpen);
+  };
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
+  const handleTitle = (i) => {
+    setTitle(i);
+  };
 
   return (
     <div className="box">
       <DropBox>
         <TxtBox
           onClick={() => {
-            setListOpen(true);
+            openMenu();
           }}
         >
           <h2>{title}</h2>
-          <MdArrowDropDown className="ic_arrow"></MdArrowDropDown>
+          <MdArrowDropDown className="ic_arrow" />
         </TxtBox>
         {listOpen ? (
           <MenuBox>
-            <ImSearch className="ImSearch"></ImSearch>
+            <ImSearch className="ImSearch" />
             <input
               placeholder="검색어를 입력하세요"
               type="text"
               onChange={(e) => {
-                setFilter(e.target.value);
+                handleFilter(e);
               }}
             />
 
             <ul>
               {listItem
                 .filter((i) => {
-                  if (text === "") {
-                    return i;
-                  } else if (i.toLowerCase().includes(text.toLowerCase())) {
-                    return i;
-                  }
+                  if (!text) return i;
+                  if (i.toLowerCase().includes(text.toLowerCase())) return i;
                   return false;
                 })
                 .map((i, idx) => {
@@ -57,8 +64,8 @@ const Dropdown = () => {
                       key={idx}
                       className="sym-click"
                       onClick={() => {
-                        setTitle(i);
-                        setListOpen(false);
+                        handleTitle(i);
+                        openMenu();
                       }}
                     >
                       {i}

@@ -1,22 +1,25 @@
-import React from "react";
-import styled from "styled-components";
-import { ImRadioUnchecked, ImEye, ImEyeBlocked } from "react-icons/im";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+import { ImRadioUnchecked, ImEye, ImEyeBlocked } from 'react-icons/im';
 
 const Input = () => {
-  const [email, setEmail] = React.useState(false);
-  const [password, setPassword] = React.useState(true);
-  const [invalid, setInvalid] = React.useState(true);
+  const [email, setEmail] = useState(false);
+  const [password, setPassword] = useState(true);
+  const [invalid, setInvalid] = useState(true);
 
   const checkEmail = (e) => {
-    let regExpEmali =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(
-        e.target.value
-      );
+    let regExpEmali = /^[A-Za-z0-9-_]+@[A-Za-z0-9-]+\.[A-Za-z0-9-]+/.test(
+      e.target.value
+    );
     let regExpInvalid = /.+(?=@)/.test(e.target.value);
     setEmail(regExpEmali);
     setInvalid(regExpInvalid);
     if (email === true && regExpInvalid === false) {
       setInvalid(false);
+    }
+    if (e.target.value === '') {
+      setInvalid(true);
     }
   };
 
@@ -35,26 +38,20 @@ const Input = () => {
             placeholder="E-mail"
             onChange={(e) => {
               checkEmail(e);
-
-              if (e.target.value === "") {
-                setInvalid(true);
-              }
             }}
           />
           <ImRadioUnchecked
-            className={email ? "ic_check ic_check_on" : "ic_check"}
-          ></ImRadioUnchecked>
-          <p className={!invalid ? "invalid" : "asd"}>
-            Invalid e-mali addres 👀
-          </p>
+            className={email ? 'ic_check ic_check_on' : 'ic_check'}
+          />
+          <p className={!invalid ? 'invalid' : ''}>Invalid e-mali addres 👀</p>
         </TopBox>
         <BottomBox>
           <label htmlFor="password">Password</label>
           <input
-            type={password ? "password" : ""}
+            type={password ? 'password' : ''}
             id="password"
             placeholder="Password"
-          ></input>
+          />
           <IcEyeBox onClick={viewPassword}>
             {password ? <ImEyeBlocked></ImEyeBlocked> : <ImEye></ImEye>}
           </IcEyeBox>

@@ -1,19 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Tab = () => {
-  const [onSwitch, setOnSwitch] = React.useState(true);
+  const [onSwitch, setOnSwitch] = useState(true);
 
-  // };
+  const handleSwitch = () => {
+    setOnSwitch(!onSwitch);
+  };
   return (
     <div className="box">
       <ToggleBox>
-        <ToggleSwitch className={onSwitch ? "on" : "off"}></ToggleSwitch>
+        <ToggleSwitch className={onSwitch ? 'on' : 'off'}></ToggleSwitch>
         <ToggleBtn
           className="txt1"
           txtColor={onSwitch}
           onClick={() => {
-            setOnSwitch(true);
+            handleSwitch();
           }}
         >
           기본🌼
@@ -22,7 +24,7 @@ const Tab = () => {
           className="txt2"
           txtColor={onSwitch}
           onClick={() => {
-            setOnSwitch(false);
+            handleSwitch();
           }}
         >
           상세🌼
@@ -53,10 +55,10 @@ const ToggleBtn = styled.button`
   outline: none;
   z-index: 1;
   &.txt1 {
-    color: ${(props) => (props.txtColor ? "red" : "black")};
+    color: ${(props) => (props.txtColor ? 'red' : 'black')};
   }
   &.txt2 {
-    color: ${(props) => (props.txtColor ? "black" : "red")};
+    color: ${(props) => (props.txtColor ? 'black' : 'red')};
   }
 `;
 

@@ -1,18 +1,22 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Slider = () => {
   const num = [1, 25, 50, 75, 100];
-  const [range, setRange] = React.useState(0);
+  const [range, setRange] = useState(0);
 
+  const handleRange = (e) => {
+    setRange(e.target.value);
+    setRange(e.target.firstChild.data);
+  };
   return (
     <div className="box">
       <SliderBox>
         <TxtBox>🌸{range}%🌸</TxtBox>
         <AniBox>
           <AniBar>
-            <AniCuruentBar width={range}></AniCuruentBar>
-            <AniRound location={range}></AniRound>
+            <AniCuruentBar width={range} />
+            <AniRound location={range} />
             <Input
               id="qwe"
               type="range"
@@ -20,7 +24,7 @@ const Slider = () => {
               max="100"
               value={range}
               onChange={(e) => {
-                setRange(e.target.value);
+                handleRange(e);
               }}
             />
           </AniBar>
@@ -30,7 +34,7 @@ const Slider = () => {
                 <NumList
                   key={idx}
                   onClick={(e) => {
-                    setRange(e.target.firstChild.data);
+                    handleRange(e);
                   }}
                 >
                   {i}

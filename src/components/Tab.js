@@ -1,9 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Tab = () => {
-  const [num, setNum] = React.useState(0);
-  const tabMenu = ["안녕🌸", "하세🌷", "요🌼"];
+  const [num, setNum] = useState(0);
+  const tabMenu = ['안녕🌸', '하세🌷', '요🌼'];
+
+  const handleNum = (idx) => {
+    setNum(idx);
+  };
 
   return (
     <div className="box">
@@ -14,7 +18,7 @@ const Tab = () => {
               <TabLi
                 key={idx}
                 onClick={() => {
-                  setNum(idx);
+                  handleNum(idx);
                 }}
               >
                 {tabMenu[idx]}
@@ -23,7 +27,7 @@ const Tab = () => {
           })}
         </TabUl>
         <AniBox>
-          <AniBar location={num}></AniBar>
+          <AniBar location={num} />
         </AniBox>
         <TabCon>{tabMenu[num]}</TabCon>
       </TabBox>
@@ -70,7 +74,7 @@ const AniBox = styled.div`
 const AniBar = styled.span`
   position: absolute;
   left: ${(props) => {
-    return props.location * 33.3 + "%";
+    return props.location * 33.3 + '%';
   }};
   width: 33.4%;
   height: 100%;
