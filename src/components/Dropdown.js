@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { ImSearch } from 'react-icons/im';
-import { MdArrowDropDown } from 'react-icons/md';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { ImSearch } from "react-icons/im";
+import { MdArrowDropDown } from "react-icons/md";
 
 const Dropdown = () => {
-  const [text, setFilter] = useState('');
+  const [text, setFilter] = useState("");
   const [listOpen, setListOpen] = useState(false);
-  const [title, setTitle] = useState('All');
+  const [title, setTitle] = useState("All");
   const listItem = [
-    '안녕하세요',
-    '✨',
-    '반가워여!',
-    '✨✨',
-    '안녕안녕하세요',
-    '반가워요',
-    'A',
-    'AA',
-    'ABC',
+    "안녕하세요",
+    "✨",
+    "반가워여!",
+    "✨✨",
+    "안녕안녕하세요",
+    "반가워요",
+    "A",
+    "AA",
+    "ABC",
   ];
 
   const openMenu = () => {
@@ -41,7 +41,7 @@ const Dropdown = () => {
           <MdArrowDropDown className="ic_arrow" />
         </TxtBox>
         {listOpen ? (
-          <MenuBox>
+          <MenuBox className="show-list">
             <ImSearch className="ImSearch" />
             <input
               placeholder="검색어를 입력하세요"
@@ -75,7 +75,7 @@ const Dropdown = () => {
             </ul>
           </MenuBox>
         ) : (
-          <></>
+          <MenuBox className="no-list"></MenuBox>
         )}
       </DropBox>
     </div>
@@ -106,8 +106,17 @@ const MenuBox = styled.div`
   position: relative;
   border: 1px solid black;
   width: 100%;
-  height: 100%;
-
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0, 1.02);
+  &.show-list {
+    height: 100%;
+    opacity: 100;
+    transform: translateY(0px);
+  }
+  &.no-list {
+    height: 0px;
+    opacity: 0;
+    transform: translateY(-4vh);
+  }
   & input {
     padding: 10px 10px 10px 50px;
     width: 100%;
@@ -125,6 +134,7 @@ const MenuBox = styled.div`
     padding: 10px;
     font-size: 14px;
     list-style: none;
+    cursor: pointer;
   }
 `;
 
