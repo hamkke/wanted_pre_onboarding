@@ -1,5 +1,10 @@
 # 원티드 프리온보딩 프론트엔드 코스 과제
-[과제 안내 링크](https://miriya.notion.site/ad592b834cbb4b28ab015bfbf2c337b0)
+
+## [과제 리팩토링 레포지토리 바로가기](https://github.com/hamkke/wanted_pre_onboarding_refactoring)
+
+## [과제 리팩토링 배포 주소 🚀](https://strong-sunshineeeeeeeeeeeeee.netlify.app/)
+
+### [과제 안내 링크](https://miriya.notion.site/ad592b834cbb4b28ab015bfbf2c337b0)
 ## Getting Started
 
 ```
